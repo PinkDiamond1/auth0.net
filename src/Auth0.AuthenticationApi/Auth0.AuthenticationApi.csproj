@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.1</TargetFramework>
+    <TargetFrameworks>netstandard1.1;net46</TargetFrameworks>
     <AssemblyVersion>4.3.1.0</AssemblyVersion>
     <FileVersion>4.3.1.0</FileVersion>
     <Version>4.3.1</Version>
@@ -11,6 +11,10 @@
     <DocumentationFile>bin\Release\netstandard1.1\Auth0.AuthenticationApi.xml</DocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'net46'">
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\Auth0.Core\Auth0.Core.csproj" />
   </ItemGroup>
